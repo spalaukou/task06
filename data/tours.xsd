@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/tours"
+        xmlns:tns="http://www.example.com/tours"
+        elementFormDefault="qualified">
+
+    <element name="tours">
+        <complexType>
+            <sequence>
+                <element name="touristVoucher"
+                         type="tns:touristVoucher"
+                         minOccurs="2"
+                         maxOccurs="unbounded" />
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="touristVoucher">
+        <sequence>
+            <element name="type" type="tns:type" />
+            <element name="country" type="string" />
+            <element name="city" type="string" />
+            <element name="numberNights" type="positiveInteger" />
+            <element name="transport" type="tns:transport" />
+            <element name="hotelCharacteristics" type="tns:hotelCharacteristics" />
+            <element name="cost" type="tns:price" />
+        </sequence>
+        <attribute name="id" type="tns:id" use="required" />
+    </complexType>
+
+    <simpleType name="type">
+        <restriction base="string">
+            <enumeration value="rest"/>
+            <enumeration value="excursion"/>
+            <enumeration value="weekend"/>
+            <enumeration value="gastroTour"/>
+            <enumeration value="pilgrimage"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="transport">
+        <restriction base="string">
+            <enumeration value="car"/>
+            <enumeration value="bus"/>
+            <enumeration value="railway"/>
+            <enumeration value="flight"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="hotelCharacteristics">
+        <sequence>
+            <element name="stars" type="tns:first5Positive" />
+            <element name="meals" type="tns:meals" />
+            <element name="persons" type="positiveInteger" />
+            <element name="TV" type="tns:presence" />
+            <element name="condition" type="tns:presence" />
+            <element name="pool" type="tns:presence" />
+            <element name="freeWiFi" type="tns:presence" />
+        </sequence>
+    </complexType>
+    <simpleType name="first5Positive">
+        <restriction base="positiveInteger">
+            <maxInclusive value="5"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="meals">
+        <restriction base="string">
+            <enumeration value="BB"/>
+            <enumeration value="HB"/>
+            <enumeration value="FB"/>
+            <enumeration value="AI"/>
+            <enumeration value="UAI"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="presence">
+        <restriction base="string">
+            <enumeration value="-"/>
+            <enumeration value="+"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="price">
+        <simpleContent>
+            <extension base="decimal">
+                <attribute name="currency" type="tns:currency" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+    <simpleType name="currency">
+        <restriction base="string">
+            <enumeration value="USD"/>
+            <enumeration value="EUR"/>
+            <enumeration value="BP"/>
+            <enumeration value="BYN"/>
+            <enumeration value="RUB"/>
+            <enumeration value="UAH"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="id">
+        <restriction base="ID">
+            <pattern value="([A-Z]){3}[0-9]{3}"/>
+        </restriction>
+    </simpleType>
+
+
+
+
+</schema>

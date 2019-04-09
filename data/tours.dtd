@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!ELEMENT tours (touristVoucher)+>
+        <!ELEMENT touristVoucher (type, country, numberNights, transport, hotelCharacteristics)>
+        <!ATTLIST touristVoucher
+                id CDATA #REQUIRED
+                >
+        <!ELEMENT type (#PCDATA)>
+        <!ELEMENT country (#PCDATA)>
+        <!ELEMENT numberNights (#PCDATA)>
+        <!ELEMENT transport (#PCDATA)>
+        <!ELEMENT hotelCharacteristics (stars, meals, persons, TV, condition, pool, freeWiFi)>
+        <!ELEMENT stars (#PCDATA)>
+        <!ELEMENT meals (#PCDATA)>
+        <!ELEMENT persons (#PCDATA)>
+        <!ELEMENT TV (#PCDATA)>
+        <!ELEMENT condition (#PCDATA)>
+        <!ELEMENT pool (#PCDATA)>
+        <!ELEMENT freeWiFi (#PCDATA)>
+        <!ELEMENT cost (#PCDATA)>
+        <!ATTLIST cost
+                currency CDATA #REQUIRED
+                >

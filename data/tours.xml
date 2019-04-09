@@ -1,0 +1,57 @@
+<tours xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.example.com/tours"
+        xsi:schemaLocation="http://www.example.com/tours tours.xsd">
+    <touristVoucher id="ESP001">
+        <type>rest</type>
+        <country>Spain</country>
+        <city>Barcelona</city>
+        <numberNights>9</numberNights>
+        <transport>flight</transport>
+        <hotelCharacteristics>
+            <stars>4</stars>
+            <meals>FB</meals>
+            <persons>2</persons>
+            <TV>+</TV>
+            <condition>+</condition>
+            <pool>+</pool>
+            <freeWiFi>+</freeWiFi>
+        </hotelCharacteristics>
+        <cost currency="BP">1800.00</cost>
+    </touristVoucher>
+
+    <touristVoucher id="TUR001">
+        <type>excursion</type>
+        <country>Turkey</country>
+        <city>Antalya</city>
+        <numberNights>6</numberNights>
+        <transport>bus</transport>
+        <hotelCharacteristics>
+            <stars>5</stars>
+            <meals>AI</meals>
+            <persons>2</persons>
+            <TV>+</TV>
+            <condition>+</condition>
+            <pool>+</pool>
+            <freeWiFi>-</freeWiFi>
+        </hotelCharacteristics>
+        <cost currency="USD">1600.00</cost>
+    </touristVoucher>
+
+    <touristVoucher id="UKR001">
+        <type>weekend</type>
+        <country>Ukraine</country>
+        <city>Lviv</city>
+        <numberNights>4</numberNights>
+        <transport>railway</transport>
+        <hotelCharacteristics>
+            <stars>3</stars>
+            <meals>HB</meals>
+            <persons>2</persons>
+            <TV>+</TV>
+            <condition>-</condition>
+            <pool>-</pool>
+            <freeWiFi>+</freeWiFi>
+        </hotelCharacteristics>
+        <cost currency="EUR">300.00</cost>
+    </touristVoucher>
+</tours>

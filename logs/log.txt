@@ -1,0 +1,18 @@
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+FATAL - 24 : 9 - The end-tag for element type "type" must end with a '>' delimiter.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+ERROR - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
