@@ -2,6 +2,7 @@ package by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXBuilder;
 
 import by.epam.javawebtraining.spalaukou.task06.model.entity.voucher.TouristVoucher;
 import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.AbstractToursBuilder;
+import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
@@ -15,11 +16,23 @@ import java.util.Set;
  */
 
 public class SAXBuilder extends AbstractToursBuilder {
+    private static final Logger LOGGER = Logger.getRootLogger();
+    private static SAXBuilder instance;
     private Set<TouristVoucher> touristVouchers;
     private TouristVoucherHandler sh;
     private XMLReader reader;
 
-    public SAXBuilder() {
+    public static SAXBuilder getInstance() {
+        if (instance == null) {
+            instance = new SAXBuilder();
+            return instance;
+        }
+        else {
+            return instance;
+        }
+    }
+
+    private SAXBuilder() {
         // creating SAX-analyzer
         sh = new TouristVoucherHandler();
         try {
@@ -27,7 +40,7 @@ public class SAXBuilder extends AbstractToursBuilder {
             reader = XMLReaderFactory.createXMLReader();
             reader.setContentHandler(sh);
         } catch (SAXException e) {
-            System.err.print("SAX parser Error: " + e);
+            LOGGER.error("SAX parser Error: " + e);
         }
     }
 
@@ -41,9 +54,9 @@ public class SAXBuilder extends AbstractToursBuilder {
             // parsing XML-document
             reader.parse(fileName);
         } catch (SAXException e) {
-            System.err.print("SAX parser Error: " + e);
+            LOGGER.error("SAX parser Error: " + e);
         } catch (IOException e) {
-            System.err.print("I/O stream Error: " + e);
+            LOGGER.error("I/O stream Error: " + e);
         }
         touristVouchers = sh.getTouristVouchers();
     }

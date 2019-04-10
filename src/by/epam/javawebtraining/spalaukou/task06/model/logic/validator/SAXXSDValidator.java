@@ -1,5 +1,6 @@
 package by.epam.javawebtraining.spalaukou.task06.model.logic.validator;
 
+import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -17,7 +18,9 @@ import java.io.IOException;
  */
 
 public class SAXXSDValidator {
-    public static void validate(String fileName, String schemaName) {
+    private static final Logger LOGGER = Logger.getRootLogger();
+
+    public static boolean isValid(String fileName, String schemaName) {
         String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
         SchemaFactory factory = SchemaFactory.newInstance(language);
         File schemaLocation = new File(schemaName);
@@ -32,13 +35,15 @@ public class SAXXSDValidator {
             // checking document
             Source source = new StreamSource(fileName);
             validator.validate(source);
-            System.out.println(fileName + " is valid.");
+            LOGGER.trace("SAXXSDValidator: " + fileName + " is valid.");
+            return true;
         } catch (SAXException e) {
-            System.err.print("validation " + fileName + " is not valid because "
+            LOGGER.error("SAXXSDValidator: validation " + fileName + " is not valid because "
                     + e.getMessage());
         } catch (IOException e) {
-            System.err.print(fileName + " is not valid because "
+            LOGGER.error("SAXXSDValidator: " + fileName + " is not valid because "
                     + e.getMessage());
         }
+        return false;
     }
 }

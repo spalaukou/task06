@@ -1,5 +1,6 @@
 package by.epam.javawebtraining.spalaukou.task06.model.logic.parser;
 
+import org.apache.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -9,9 +10,11 @@ import org.xml.sax.helpers.DefaultHandler;
  */
 
 public class TouristVoucherHandler extends DefaultHandler {
+    private static final Logger LOGGER = Logger.getRootLogger();
+
     @Override
     public void startDocument() {
-        System.out.println("Parsing started.");
+        LOGGER.trace("Parsing started.");
     }
 
     @Override
@@ -21,22 +24,22 @@ public class TouristVoucherHandler extends DefaultHandler {
         for (int i = 0; i < attrs.getLength(); i++) {
             s += " " + attrs.getLocalName(i) + "=" + attrs.getValue(i);
         }
-        System.out.print(s.trim());
+        LOGGER.trace(s.trim());
     }
 
     @Override
     public void characters(char[] ch, int start, int length) {
-        System.out.print(new String(ch, start, length));
+        LOGGER.trace(new String(ch, start, length));
     }
 
     @Override
     public void endElement(String uri, String localName, String qName) {
-        System.out.print(localName);
+        LOGGER.trace(localName);
     }
 
     @Override
     public void endDocument() {
-        System.out.println("\nParsing ended.");
+        LOGGER.trace("\nParsing ended.");
     }
 }
 

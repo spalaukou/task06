@@ -14,6 +14,7 @@
             </sequence>
         </complexType>
     </element>
+
     <complexType name="touristVoucher">
         <sequence>
             <element name="type" type="tns:type" />

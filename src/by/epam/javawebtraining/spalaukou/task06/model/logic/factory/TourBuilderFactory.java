@@ -20,11 +20,11 @@ public class TourBuilderFactory {
         TypeParser type = TypeParser.valueOf(typeParser.toUpperCase());
         switch (type) {
             case DOM:
-                return new DOMBuilder();
+                return DOMBuilder.getInstance();
             case STAX:
-                return new StAXBuilder();
+                return StAXBuilder.getInstance();
             case SAX:
-                return new SAXBuilder();
+                return SAXBuilder.getInstance();
             default:
                 throw new EnumConstantNotPresentException (type.getDeclaringClass(), type.name());
         }

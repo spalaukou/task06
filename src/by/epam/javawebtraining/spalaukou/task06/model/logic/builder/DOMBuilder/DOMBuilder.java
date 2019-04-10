@@ -2,6 +2,7 @@ package by.epam.javawebtraining.spalaukou.task06.model.logic.builder.DOMBuilder;
 
 import by.epam.javawebtraining.spalaukou.task06.model.entity.voucher.*;
 import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.AbstractToursBuilder;
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -23,17 +24,30 @@ import java.util.Set;
  */
 
 public class DOMBuilder extends AbstractToursBuilder {
+    private static final Logger LOGGER = Logger.getRootLogger();
+    private static DOMBuilder instance;
+
     private Set<TouristVoucher> touristVouchers;
     private DocumentBuilder docBuilder;
 
-    public DOMBuilder() {
+    public static DOMBuilder getInstance() {
+        if (instance == null) {
+            instance = new DOMBuilder();
+            return instance;
+        }
+        else {
+            return instance;
+        }
+    }
+
+    private DOMBuilder() {
         this.touristVouchers = new HashSet<>();
         // creating DOM-analyzer
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             docBuilder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-            System.err.println("Parser configuration Error: " + e);
+            LOGGER.error("Parser configuration Error: " + e);
         }
     }
 
@@ -56,9 +70,9 @@ public class DOMBuilder extends AbstractToursBuilder {
                 touristVouchers.add(touristVoucher);
             }
         } catch (IOException e) {
-            System.err.println("File error or I/O error: " + e);
+            LOGGER.error("File error or I/O error: " + e);
         } catch (SAXException e) {
-            System.err.println("Parsing failure: " + e);
+            LOGGER.error("Parsing failure: " + e);
         }
     }
 

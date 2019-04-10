@@ -1,0 +1,70 @@
+2019-04-10 17:56:37 TRACE root:22 - Start main.
+2019-04-10 17:56:37 ERROR task06:24 - 3 : 69 - cvc-elt.1.a: Cannot find the declaration of element 'tours'.
+2019-04-10 17:56:37 TRACE root:40 - SAXValidator: data/tours.xml is valid.
+2019-04-10 17:56:37 TRACE root:38 - SAXXSDValidator: data/tours.xml is valid.
+2019-04-10 17:56:37 TRACE root:26 - Validating has been ended.
+2019-04-10 17:56:37 TRACE root:31 - Parsing has been ended.
+2019-04-10 17:56:37 TRACE root:35 - Entities have been build.
+2019-04-10 17:56:37 TRACE root:38 - Output entities:
+2019-04-10 17:56:37 TRACE root:39 - [
+TouristVoucher{
+	id='TUR001'
+	type=EXCURSION, 
+	country='Turkey', 
+	city='Antalya', 
+	numberNights=6, 
+	transport=BUS, 
+	hotelCharacteristics=
+		HotelCharacteristics{
+		stars=5, 
+		meals=AI, 
+		persons=2, 
+		TV='+', 
+		condition='+', 
+		pool='+', 
+		freeWiFi='-'}, 
+	cost=
+		Price{
+		value=1600.00, 
+		currency=USD}}, 
+TouristVoucher{
+	id='ESP001'
+	type=REST, 
+	country='Spain', 
+	city='Barcelona', 
+	numberNights=9, 
+	transport=FLIGHT, 
+	hotelCharacteristics=
+		HotelCharacteristics{
+		stars=4, 
+		meals=FB, 
+		persons=2, 
+		TV='+', 
+		condition='+', 
+		pool='+', 
+		freeWiFi='+'}, 
+	cost=
+		Price{
+		value=1800.00, 
+		currency=BP}}, 
+TouristVoucher{
+	id='UKR001'
+	type=WEEKEND, 
+	country='Ukraine', 
+	city='Lviv', 
+	numberNights=4, 
+	transport=RAILWAY, 
+	hotelCharacteristics=
+		HotelCharacteristics{
+		stars=3, 
+		meals=HB, 
+		persons=2, 
+		TV='+', 
+		condition='-', 
+		pool='-', 
+		freeWiFi='+'}, 
+	cost=
+		Price{
+		value=300.00, 
+		currency=EUR}}]
+2019-04-10 17:56:37 TRACE root:42 - End.

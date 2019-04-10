@@ -1,6 +1,7 @@
 package by.epam.javawebtraining.spalaukou.task06.model.logic.validator;
 
 import by.epam.javawebtraining.spalaukou.task06.model.entity.voucher.TourErrorHandler;
+import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -18,9 +19,10 @@ import java.io.IOException;
  */
 
 public class SAXValidator {
-    public static void validate(String fileName, String schemaName) {
-        String logName = "logs/log.txt";
-        Schema schema = null;
+    private static final Logger LOGGER = Logger.getRootLogger();
+
+    public static boolean isValid(String fileName, String schemaName) {
+        Schema schema;
         String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
         SchemaFactory factory = SchemaFactory.newInstance(language);
         try {
@@ -34,15 +36,17 @@ public class SAXValidator {
             SAXParser parser = spf.newSAXParser();
 
             // setting errors handler and starting
-            parser.parse(fileName, new TourErrorHandler(logName));
-            System.out.println(fileName + " is valid.");
+            parser.parse(fileName, new TourErrorHandler(LOGGER.toString()));
+            LOGGER.trace("SAXValidator: " + fileName + " is valid.");
+            return true;
         } catch (ParserConfigurationException e) {
-            System.err.println(fileName + " config error: " + e.getMessage());
+            LOGGER.error("SAXValidator: " + fileName + " config error: " + e.getMessage());
         } catch (SAXException e) {
-            System.err.println(fileName + " SAX error: " + e.getMessage());
+            LOGGER.error("SAXValidator: " + fileName + " SAX error: " + e.getMessage());
         } catch (IOException e) {
-            System.err.println("I/O error: " + e.getMessage());
+            LOGGER.error("I/O error: " + e.getMessage());
         }
+        return false;
     }
 
 }

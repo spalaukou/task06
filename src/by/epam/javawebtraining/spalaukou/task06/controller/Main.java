@@ -4,6 +4,7 @@ import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.AbstractTour
 import by.epam.javawebtraining.spalaukou.task06.model.logic.factory.TourBuilderFactory;
 import by.epam.javawebtraining.spalaukou.task06.model.logic.validator.SAXValidator;
 import by.epam.javawebtraining.spalaukou.task06.model.logic.validator.SAXXSDValidator;
+import org.apache.log4j.Logger;
 
 /**
  * @author Stanislau Palaukou on 09.04.2019
@@ -11,21 +12,33 @@ import by.epam.javawebtraining.spalaukou.task06.model.logic.validator.SAXXSDVali
  */
 
 public class Main {
-    public static final String fileName = "data/tours.xml";
-    public static final String schemaName = "data/tours.xsd";
-    public static final String typeParser = "stax"; // dom, sax, stax
+    private static final Logger LOGGER = Logger.getRootLogger();
+
+    private static final String fileName = "data/tours.xml";
+    private static final String schemaName = "data/tours.xsd";
+    private static final String typeParser = "dom"; // dom, sax, stax
 
     public static void main(String[] args) {
-        // validating XML-document with XSD
-        SAXValidator.validate(fileName, schemaName);
-        SAXXSDValidator.validate(fileName, schemaName);
+        LOGGER.trace("Start main.");
 
-        // parsing XML-document
-        TourBuilderFactory tFactory = new TourBuilderFactory();
-        AbstractToursBuilder builder = tFactory.createTourBuilder(typeParser);
-        // building entities
-        builder.buildSetTours(fileName);
-        // output entities
-        System.out.println(builder.getTouristVouchers());
+        // validating XML-document with XSD
+        if(SAXValidator.isValid(fileName, schemaName) && SAXXSDValidator.isValid(fileName, schemaName)) {
+            LOGGER.trace("Validating has been ended.");
+
+            // parsing XML-document
+            TourBuilderFactory tFactory = new TourBuilderFactory();
+            AbstractToursBuilder builder = tFactory.createTourBuilder(typeParser);
+            LOGGER.trace("Parsing has been ended.");
+
+            // building entities
+            builder.buildSetTours(fileName);
+            LOGGER.trace("Entities have been build.");
+
+            // output entities
+            LOGGER.trace("Output entities:");
+            LOGGER.trace(builder.getTouristVouchers());
+        }
+
+        LOGGER.trace("End.");
     }
 }

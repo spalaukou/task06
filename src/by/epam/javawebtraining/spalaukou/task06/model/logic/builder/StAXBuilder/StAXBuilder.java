@@ -2,7 +2,9 @@ package by.epam.javawebtraining.spalaukou.task06.model.logic.builder.StAXBuilder
 
 import by.epam.javawebtraining.spalaukou.task06.model.entity.voucher.*;
 import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.AbstractToursBuilder;
+import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXBuilder.SAXBuilder;
 import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXBuilder.TourEnum;
+import org.apache.log4j.Logger;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -21,9 +23,21 @@ import java.math.BigInteger;
  */
 
 public class StAXBuilder extends AbstractToursBuilder {
+    private static final Logger LOGGER = Logger.getRootLogger();
+    private static StAXBuilder instance;
     private XMLInputFactory inputFactory;
 
-    public StAXBuilder() {
+    public static StAXBuilder getInstance() {
+        if (instance == null) {
+            instance = new StAXBuilder();
+            return instance;
+        }
+        else {
+            return instance;
+        }
+    }
+
+    private StAXBuilder() {
         inputFactory = XMLInputFactory.newInstance();
     }
 
@@ -47,16 +61,16 @@ public class StAXBuilder extends AbstractToursBuilder {
                 }
             }
         } catch (XMLStreamException ex) {
-            System.err.println("StAX parsing error! " + ex.getMessage());
+            LOGGER.error("StAX parsing error! " + ex.getMessage());
         } catch (FileNotFoundException ex) {
-            System.err.println("File " + fileName + " not found! " + ex);
+            LOGGER.error("File " + fileName + " not found! " + ex);
         } finally {
             try {
                 if (inputStream != null) {
                     inputStream.close();
                 }
             } catch (IOException e) {
-                System.err.println("Impossible close file "+fileName+" : "+e);
+                LOGGER.error("Impossible close file "+fileName+" : "+e);
             }
         }
     }
