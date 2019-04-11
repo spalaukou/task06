@@ -1,0 +1,6 @@
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="fileName">data/tours.xml</entry>
+    <entry key="schemaName">data/tours.xsd</entry>
+    <entry key="parserType">dom</entry><!--dom, sax, stax-->
+</properties>
