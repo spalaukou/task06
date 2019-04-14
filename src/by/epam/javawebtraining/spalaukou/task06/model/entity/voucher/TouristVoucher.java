@@ -32,7 +32,7 @@ public class TouristVoucher {
     private String city;
     @XmlElement(required = true)
     @XmlSchemaType(name = "positiveInteger")
-    private BigInteger numberNights;
+    private int numberNights;
     @XmlElement(required = true)
     @XmlSchemaType(name = "string")
     private Transport transport;
@@ -50,7 +50,7 @@ public class TouristVoucher {
     public TouristVoucher() {
     }
 
-    public TouristVoucher(Type type, String country, String city, BigInteger numberNights, Transport transport,
+    public TouristVoucher(Type type, String country, String city, int numberNights, Transport transport,
                           HotelCharacteristics hotelCharacteristics, Price cost, String id) {
         this.type = type;
         this.country = country;
@@ -86,11 +86,11 @@ public class TouristVoucher {
         this.city = city;
     }
 
-    public BigInteger getNumberNights() {
+    public int getNumberNights() {
         return numberNights;
     }
 
-    public void setNumberNights(BigInteger numberNights) {
+    public void setNumberNights(int numberNights) {
         this.numberNights = numberNights;
     }
 

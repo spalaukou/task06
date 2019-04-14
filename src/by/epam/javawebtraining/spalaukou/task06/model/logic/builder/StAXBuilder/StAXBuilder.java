@@ -2,7 +2,6 @@ package by.epam.javawebtraining.spalaukou.task06.model.logic.builder.StAXBuilder
 
 import by.epam.javawebtraining.spalaukou.task06.model.entity.voucher.*;
 import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.AbstractToursBuilder;
-import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXBuilder.SAXBuilder;
 import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXBuilder.TourEnum;
 import org.apache.log4j.Logger;
 
@@ -88,8 +87,8 @@ public class StAXBuilder extends AbstractToursBuilder {
                         case TYPE: touristVoucher.setType(Type.valueOf(getXMLText(reader).toUpperCase())); break;
                         case COUNTRY: touristVoucher.setCountry(getXMLText(reader)); break;
                         case CITY: touristVoucher.setCity(getXMLText(reader)); break;
-                        case NUMBERNIGHTS: touristVoucher.setNumberNights(BigInteger.valueOf(
-                                Integer.parseInt(getXMLText(reader)))); break;
+                        case NUMBERNIGHTS: touristVoucher.setNumberNights(
+                                Integer.parseInt(getXMLText(reader))); break;
                         case TRANSPORT: touristVoucher.setTransport(Transport.valueOf(
                                 getXMLText(reader).toUpperCase())); break;
                         case HOTELCHARACTERISTICS: touristVoucher.setHotelCharacteristics(

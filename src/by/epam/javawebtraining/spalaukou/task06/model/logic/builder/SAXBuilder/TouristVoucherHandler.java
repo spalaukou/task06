@@ -74,7 +74,7 @@ public class TouristVoucherHandler extends DefaultHandler {
                 case TYPE: current.setType(Type.valueOf(s.toUpperCase())); break;
                 case COUNTRY: current.setCountry(s); break;
                 case CITY: current.setCity(s); break;
-                case NUMBERNIGHTS: current.setNumberNights(new BigInteger(s)); break;
+                case NUMBERNIGHTS: current.setNumberNights(Integer.parseInt(s)); break;
                 case TRANSPORT: current.setTransport(Transport.valueOf(s.toUpperCase())); break;
                 case STARS: currentHotelCharacteristics.setStars(Integer.valueOf(s)); break;
                 case MEALS: currentHotelCharacteristics.setMeals(Meals.valueOf(s)); break;

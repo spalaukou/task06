@@ -90,8 +90,8 @@ public class DOMBuilder extends AbstractToursBuilder {
         String city = String.valueOf(getElementTextContent(voucherElement, "city"));
         touristVoucher.setCity(city);
 
-        BigInteger numberNights = BigInteger.valueOf(Integer.parseInt(getElementTextContent(
-                voucherElement, "numberNights")));
+        int numberNights = Integer.parseInt(getElementTextContent(
+                voucherElement, "numberNights"));
         touristVoucher.setNumberNights(numberNights);
 
         String transport = String.valueOf(getElementTextContent(voucherElement, "transport"));
