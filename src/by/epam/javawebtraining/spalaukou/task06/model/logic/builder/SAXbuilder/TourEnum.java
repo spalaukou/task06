@@ -1,4 +1,4 @@
-package by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXBuilder;
+package by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXbuilder;
 
 /**
  * @author Stanislau Palaukou on 07.04.2019

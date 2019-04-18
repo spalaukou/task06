@@ -18,7 +18,7 @@ import java.io.IOException;
  * @project task06
  */
 
-public class SAXValidator {
+public class SAXvalidator {
     private static final Logger LOGGER = Logger.getRootLogger();
 
     public static boolean isValid(String fileName, String schemaName) {
@@ -37,12 +37,12 @@ public class SAXValidator {
 
             // setting errors handler and starting
             parser.parse(fileName, new TourErrorHandler(LOGGER.toString()));
-            LOGGER.trace("SAXValidator: " + fileName + " is valid.");
+            LOGGER.trace("SAXvalidator: " + fileName + " is valid.");
             return true;
         } catch (ParserConfigurationException e) {
-            LOGGER.error("SAXValidator: " + fileName + " config error: " + e.getMessage());
+            LOGGER.error("SAXvalidator: " + fileName + " config error: " + e.getMessage());
         } catch (SAXException e) {
-            LOGGER.error("SAXValidator: " + fileName + " SAX error: " + e.getMessage());
+            LOGGER.error("SAXvalidator: " + fileName + " SAX error: " + e.getMessage());
         } catch (IOException e) {
             LOGGER.error("I/O error: " + e.getMessage());
         }

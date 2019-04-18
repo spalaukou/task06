@@ -12,7 +12,7 @@ import java.io.IOException;
  * @project task06
  */
 
-public class SAXSimpleMain {
+public class SAXsimpleMain {
     private static final Logger LOGGER = Logger.getRootLogger();
 
         public static void main(String[ ] args) {

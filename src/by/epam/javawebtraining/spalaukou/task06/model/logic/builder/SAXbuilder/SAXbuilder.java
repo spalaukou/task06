@@ -1,4 +1,4 @@
-package by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXBuilder;
+package by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXbuilder;
 
 import by.epam.javawebtraining.spalaukou.task06.model.entity.voucher.TouristVoucher;
 import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.AbstractToursBuilder;
@@ -15,16 +15,16 @@ import java.util.Set;
  * @project task06
  */
 
-public class SAXBuilder extends AbstractToursBuilder {
+public class SAXbuilder extends AbstractToursBuilder {
     private static final Logger LOGGER = Logger.getRootLogger();
-    private static SAXBuilder instance;
+    private static SAXbuilder instance;
     private Set<TouristVoucher> touristVouchers;
     private TouristVoucherHandler sh;
     private XMLReader reader;
 
-    public static SAXBuilder getInstance() {
+    public static SAXbuilder getInstance() {
         if (instance == null) {
-            instance = new SAXBuilder();
+            instance = new SAXbuilder();
             return instance;
         }
         else {
@@ -32,7 +32,7 @@ public class SAXBuilder extends AbstractToursBuilder {
         }
     }
 
-    private SAXBuilder() {
+    private SAXbuilder() {
         // creating SAX-analyzer
         sh = new TouristVoucherHandler();
         try {

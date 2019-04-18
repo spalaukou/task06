@@ -1,11 +1,10 @@
-package by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXBuilder;
+package by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXbuilder;
 
 import by.epam.javawebtraining.spalaukou.task06.model.entity.voucher.*;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;

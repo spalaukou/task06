@@ -1,4 +1,4 @@
-package by.epam.javawebtraining.spalaukou.task06.model.logic.builder.DOMBuilder;
+package by.epam.javawebtraining.spalaukou.task06.model.logic.builder.DOMbuilder;
 
 import by.epam.javawebtraining.spalaukou.task06.model.entity.voucher.*;
 import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.AbstractToursBuilder;
@@ -14,7 +14,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,16 +22,16 @@ import java.util.Set;
  * @project task06
  */
 
-public class DOMBuilder extends AbstractToursBuilder {
+public class DOMbuilder extends AbstractToursBuilder {
     private static final Logger LOGGER = Logger.getRootLogger();
-    private static DOMBuilder instance;
+    private static DOMbuilder instance;
 
     private Set<TouristVoucher> touristVouchers;
     private DocumentBuilder docBuilder;
 
-    public static DOMBuilder getInstance() {
+    public static DOMbuilder getInstance() {
         if (instance == null) {
-            instance = new DOMBuilder();
+            instance = new DOMbuilder();
             return instance;
         }
         else {
@@ -40,7 +39,7 @@ public class DOMBuilder extends AbstractToursBuilder {
         }
     }
 
-    private DOMBuilder() {
+    private DOMbuilder() {
         this.touristVouchers = new HashSet<>();
         // creating DOM-analyzer
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

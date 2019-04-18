@@ -1,8 +1,8 @@
-package by.epam.javawebtraining.spalaukou.task06.model.logic.builder.StAXBuilder;
+package by.epam.javawebtraining.spalaukou.task06.model.logic.builder.StAXbuilder;
 
 import by.epam.javawebtraining.spalaukou.task06.model.entity.voucher.*;
 import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.AbstractToursBuilder;
-import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXBuilder.TourEnum;
+import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXbuilder.TourEnum;
 import org.apache.log4j.Logger;
 
 import javax.xml.stream.XMLInputFactory;
@@ -14,21 +14,20 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 /**
  * @author Stanislau Palaukou on 09.04.2019
  * @project task06
  */
 
-public class StAXBuilder extends AbstractToursBuilder {
+public class StAXbuilder extends AbstractToursBuilder {
     private static final Logger LOGGER = Logger.getRootLogger();
-    private static StAXBuilder instance;
+    private static StAXbuilder instance;
     private XMLInputFactory inputFactory;
 
-    public static StAXBuilder getInstance() {
+    public static StAXbuilder getInstance() {
         if (instance == null) {
-            instance = new StAXBuilder();
+            instance = new StAXbuilder();
             return instance;
         }
         else {
@@ -36,7 +35,7 @@ public class StAXBuilder extends AbstractToursBuilder {
         }
     }
 
-    private StAXBuilder() {
+    private StAXbuilder() {
         inputFactory = XMLInputFactory.newInstance();
     }
 

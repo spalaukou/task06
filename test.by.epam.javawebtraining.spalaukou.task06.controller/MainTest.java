@@ -1,8 +1,8 @@
 import by.epam.javawebtraining.spalaukou.task06.model.entity.voucher.TouristVoucher;
 import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.AbstractToursBuilder;
 import by.epam.javawebtraining.spalaukou.task06.model.logic.factory.TourBuilderFactory;
-import by.epam.javawebtraining.spalaukou.task06.model.logic.validator.SAXValidator;
-import by.epam.javawebtraining.spalaukou.task06.model.logic.validator.SAXXSDValidator;
+import by.epam.javawebtraining.spalaukou.task06.model.logic.validator.SAXXSDvalidator;
+import by.epam.javawebtraining.spalaukou.task06.model.logic.validator.SAXvalidator;
 import by.epam.javawebtraining.spalaukou.task06.util.Configurator;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -23,7 +23,7 @@ public class MainTest {
         String SCHEMA_NAME = Configurator.getProperty("schemaName");
         String PARSER_TYPE = Configurator.getProperty("parserType");
 
-        if(SAXValidator.isValid(FILE_NAME, SCHEMA_NAME) && SAXXSDValidator.isValid(FILE_NAME, SCHEMA_NAME)) {
+        if(SAXvalidator.isValid(FILE_NAME, SCHEMA_NAME) && SAXXSDvalidator.isValid(FILE_NAME, SCHEMA_NAME)) {
             TourBuilderFactory tFactory = new TourBuilderFactory();
             builder = tFactory.createTourBuilder(PARSER_TYPE);
             builder.buildSetTours(FILE_NAME);

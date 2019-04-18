@@ -2,8 +2,8 @@ package by.epam.javawebtraining.spalaukou.task06.controller;
 
 import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.AbstractToursBuilder;
 import by.epam.javawebtraining.spalaukou.task06.model.logic.factory.TourBuilderFactory;
-import by.epam.javawebtraining.spalaukou.task06.model.logic.validator.SAXValidator;
-import by.epam.javawebtraining.spalaukou.task06.model.logic.validator.SAXXSDValidator;
+import by.epam.javawebtraining.spalaukou.task06.model.logic.validator.SAXXSDvalidator;
+import by.epam.javawebtraining.spalaukou.task06.model.logic.validator.SAXvalidator;
 import by.epam.javawebtraining.spalaukou.task06.util.Configurator;
 import org.apache.log4j.Logger;
 
@@ -22,7 +22,7 @@ public class Main {
         LOGGER.trace("Start main.");
 
         // validating XML-document with XSD
-        if(SAXValidator.isValid(FILE_NAME, SCHEMA_NAME) && SAXXSDValidator.isValid(FILE_NAME, SCHEMA_NAME)) {
+        if(SAXvalidator.isValid(FILE_NAME, SCHEMA_NAME) && SAXXSDvalidator.isValid(FILE_NAME, SCHEMA_NAME)) {
             LOGGER.trace("Validating has been ended.");
 
             // parsing XML-document

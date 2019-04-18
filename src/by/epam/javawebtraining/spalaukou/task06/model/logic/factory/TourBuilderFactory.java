@@ -1,9 +1,9 @@
 package by.epam.javawebtraining.spalaukou.task06.model.logic.factory;
 
 import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.AbstractToursBuilder;
-import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.DOMBuilder.DOMBuilder;
-import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXBuilder.SAXBuilder;
-import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.StAXBuilder.StAXBuilder;
+import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.DOMbuilder.DOMbuilder;
+import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.SAXbuilder.SAXbuilder;
+import by.epam.javawebtraining.spalaukou.task06.model.logic.builder.StAXbuilder.StAXbuilder;
 
 /**
  * @author Stanislau Palaukou on 09.04.2019
@@ -20,11 +20,11 @@ public class TourBuilderFactory {
         TypeParser type = TypeParser.valueOf(typeParser.toUpperCase());
         switch (type) {
             case DOM:
-                return DOMBuilder.getInstance();
+                return DOMbuilder.getInstance();
             case STAX:
-                return StAXBuilder.getInstance();
+                return StAXbuilder.getInstance();
             case SAX:
-                return SAXBuilder.getInstance();
+                return SAXbuilder.getInstance();
             default:
                 throw new EnumConstantNotPresentException (type.getDeclaringClass(), type.name());
         }

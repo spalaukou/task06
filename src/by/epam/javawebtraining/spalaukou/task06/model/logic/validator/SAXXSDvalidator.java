@@ -17,7 +17,7 @@ import java.io.IOException;
  * @project task06
  */
 
-public class SAXXSDValidator {
+public class SAXXSDvalidator {
     private static final Logger LOGGER = Logger.getRootLogger();
 
     public static boolean isValid(String fileName, String schemaName) {
@@ -35,13 +35,13 @@ public class SAXXSDValidator {
             // checking document
             Source source = new StreamSource(fileName);
             validator.validate(source);
-            LOGGER.trace("SAXXSDValidator: " + fileName + " is valid.");
+            LOGGER.trace("SAXXSDvalidator: " + fileName + " is valid.");
             return true;
         } catch (SAXException e) {
-            LOGGER.error("SAXXSDValidator: validation " + fileName + " is not valid because "
+            LOGGER.error("SAXXSDvalidator: validation " + fileName + " is not valid because "
                     + e.getMessage());
         } catch (IOException e) {
-            LOGGER.error("SAXXSDValidator: " + fileName + " is not valid because "
+            LOGGER.error("SAXXSDvalidator: " + fileName + " is not valid because "
                     + e.getMessage());
         }
         return false;
